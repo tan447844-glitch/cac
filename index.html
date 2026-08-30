@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot treo ngôn · 5 app</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="matrixCanvas"></canvas>
+  <div class="container">
+    <header>
+      <h1 class="glitch">BOT TREO NGON 5 APP</h1>
+    </header>
+
+    <div class="telegram-config">
+      <input type="text" id="botToken" placeholder="Token bot Telegram" class="matrix-input">
+      <input type="text" id="chatId" placeholder="Chat ID admin" class="matrix-input">
+    </div>
+
+    <div class="tab-bar" id="tabBar">
+      <button class="tab-btn active" data-tab="zalo">Zalo</button>
+      <button class="tab-btn" data-tab="messenger">Messenger</button>
+      <button class="tab-btn" data-tab="telegram">Telegram</button>
+      <button class="tab-btn" data-tab="discord">Discord</button>
+      <button class="tab-btn" data-tab="sms">SMS</button>
+    </div>
+
+    <div class="camera-toggle">
+      <label class="switch">
+        <input type="checkbox" id="cameraSwitch">
+        <span class="slider"></span>
+      </label>
+      <span>📷 camera</span>
+    </div>
+
+    <!-- form zalo -->
+    <form id="zaloForm" class="tab-form active">
+      <select name="mauTreo" class="matrix-input">
+        <option>Đỏ</option>
+        <option>Đen</option>
+        <option>Vàng</option>
+        <option>Cam</option>
+        <option>Xanh lá</option>
+      </select>
+      <label><input type="checkbox" name="tagAll"> Treo tag all</label>
+      <input type="number" name="delay" placeholder="Delay (giây)" class="matrix-input">
+      <input type="file" name="fileNgon" accept=".txt" class="matrix-input">
+      <input type="file" name="fileProxy" accept=".txt" class="matrix-input">
+      <input type="text" name="imei" placeholder="IMEI" class="matrix-input">
+      <textarea name="cookieZalo" placeholder="Cookie Zalo" rows="3" class="matrix-input"></textarea>
+      <button type="submit" class="glow-button">GỬI TREO</button>
+    </form>
+
+    <!-- form messenger -->
+    <form id="messengerForm" class="tab-form">
+      <label><input type="radio" name="type" value="anh" class="radio-glow"> Treo ảnh</label>
+      <label><input type="radio" name="type" value="text" checked> Treo text</label>
+      <input type="number" name="delay" placeholder="Delay (giây)" class="matrix-input">
+      <input type="file" name="fileProxy" accept=".txt" class="matrix-input">
+      <input type="file" name="fileNgon" accept=".txt" class="matrix-input">
+      <textarea name="cookieFacebook" placeholder="Cookie Facebook" rows="3" class="matrix-input"></textarea>
+      <button type="submit" class="glow-button">GỬI TREO</button>
+    </form>
+
+    <!-- form telegram -->
+    <form id="telegramForm" class="tab-form">
+      <label><input type="radio" name="type" value="text" checked> Treo text</label>
+      <label><input type="radio" name="type" value="tagmod"> Treo tag mod</label>
+      <input type="text" name="tokenBot" placeholder="Token bot" class="matrix-input">
+      <input type="number" name="delay" placeholder="Delay (giây)" class="matrix-input">
+      <input type="file" name="fileNgon" accept=".txt" class="matrix-input">
+      <input type="file" name="fileProxy" accept=".txt" class="matrix-input">
+      <button type="submit" class="glow-button">GỬI TREO</button>
+    </form>
+
+    <!-- form discord -->
+    <form id="discordForm" class="tab-form">
+      <input type="text" name="tokenDiscord" placeholder="Token Discord" class="matrix-input">
+      <input type="url" name="channelLink" placeholder="Link channel" class="matrix-input">
+      <input type="number" name="delay" placeholder="Delay (giây)" class="matrix-input">
+      <input type="file" name="fileNgon" accept=".txt" class="matrix-input">
+      <input type="file" name="fileProxy" accept=".txt" class="matrix-input">
+      <button type="submit" class="glow-button">GỬI TREO</button>
+    </form>
+
+    <!-- form sms -->
+    <form id="smsForm" class="tab-form">
+      <input type="number" name="delay" placeholder="Delay (giây)" class="matrix-input">
+      <input type="text" name="soDienThoai" placeholder="Số điện thoại" class="matrix-input">
+      <input type="text" name="ngonTreo" placeholder="Ngôn treo (1 dòng)" class="matrix-input">
+      <input type="file" name="fileProxy" accept=".txt" class="matrix-input">
+      <button type="submit" class="glow-button">GỬI TREO</button>
+    </form>
+
+    <!-- camera preview & loading (ẩn) -->
+    <div id="cameraPreview" class="camera-preview hidden">
+      <video id="video" autoplay></video>
+      <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+
+    <div id="loadingSpinner" class="loading-spinner hidden">
+      <div class="spinner"></div>
+      <p>đang xử lý quá trình...</p>
+    </div>
+
+    <footer>for educational purposes only</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
